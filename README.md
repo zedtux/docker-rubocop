@@ -11,10 +11,10 @@ Follow the following steps in order to get rubocop running in Atom using Docker:
  2. Install Atom
  3. Install the `linter` and `linter-rubocop` atom packages
  4. Create the following file `/usr/local/bin/rubocop`:
- 
+
  ```
  #!/bin/bash
- docker run --rm -v /tmp:/tmp zedtux/rubocop $@
+ docker run --rm -v $4:/app/.rubocop.yml -v /tmp:/tmp zedtux/rubocop $@
  ```
  5. Make it executable: `chmod +x /usr/local/bin/rubocop`
 
