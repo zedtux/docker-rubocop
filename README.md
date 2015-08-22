@@ -24,6 +24,18 @@ Now, in Atom, open a Ruby file and let the magic happening.
 _Note: First time you'll run it, it will pull the image from the Internet which
 could takes some time depending on your Internet connection_
 
+## Upgrade Rubocop
+
+The goal is to not install things on your machine, so how to upgrade rubocop without Ruby installed on your machine ?
+
+```
+docker run --rm -it -v `pwd`:/app -w /app ruby sh -c 'gem install bundler && bundle update' 
+```
+
+This command will mount your current folder in a `ruby` container, set the working directory (flag `-w`) to that folder in the container and finally execute (`sh -c`) the installation of Bundler and then run the command `bundle update`.
+
+The `Gemfile.lock` is updated, you can commit it and build a new image of docker-rubocop.
+
 ### About this fork
 
 This repository is a fork of the [BBC News specific config for Rubocop](https://github.com/BBC-News/rubocop-config).
