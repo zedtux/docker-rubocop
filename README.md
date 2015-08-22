@@ -29,7 +29,12 @@ could takes some time depending on your Internet connection_
 The goal is to not install things on your machine, so how to upgrade rubocop without Ruby installed on your machine ?
 
 ```
-docker run --rm -v `pwd`:/app -w /app ruby sh -c 'gem install bundler && bundle update' 
+$ docker run --rm \
+             -v `pwd`:/app \
+             -w /app \
+             ruby \
+             sh -c 'gem install bundler && bundle update'
+ 
 ```
 
 This command will mount your current folder in a `ruby` container, set the working directory (flag `-w`) to that folder in the container and finally execute (`sh -c`) the installation of Bundler and then run the command `bundle update`.
