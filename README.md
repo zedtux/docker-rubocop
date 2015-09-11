@@ -15,7 +15,7 @@ Follow the following steps in order to get rubocop running in Atom using Docker:
 
  ```
  #!/bin/bash
- docker run --rm -v $4:/app/.rubocop.yml -v /tmp:/tmp zedtux/docker-rubocop $@
+ docker run --rm -v $4:/app/.rubocop.yml -v /tmp:/tmp zedtux/docker-rubocop:0.34.1 $@
  ```
  6. Make it executable: `chmod +x /usr/local/bin/rubocop`
 
@@ -23,6 +23,8 @@ Now, in Atom, open a Ruby file and let the magic happening.
 
 _Note: First time you'll run it, it will pull the image from the Internet which
 could takes some time depending on your Internet connection_
+
+_Note 2: You can find all the available tags [here](https://hub.docker.com/r/zedtux/docker-rubocop/tags/)._
 
 ## Upgrade Rubocop
 
