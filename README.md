@@ -1,6 +1,6 @@
 # Rubocop in Docker for Atom
 
-I have created this docker image in order to run [Rubocop](https://github.com/bbatsov/rubocop)
+I have created this [docker image](https://hub.docker.com/r/zedtux/docker-rubocop/) in order to run [Rubocop](https://github.com/bbatsov/rubocop)
 from the [Atom](https://atom.io/) IDE.
 
 ## Installation
