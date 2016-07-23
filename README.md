@@ -15,7 +15,18 @@ Follow the following steps in order to get rubocop running in Atom using Docker:
 
  ```
  #!/bin/bash
- docker run --rm -v $4:/app/.rubocop.yml -v /tmp:/tmp zedtux/docker-rubocop:0.34.1 $@
+ 
+ # Remove invalid arguments send by linter-rubocop
+ CMD_ARGS=""
+ for arg in $@
+ do
+   # -s stands for --stdin which prevent rubocop from working
+   [[ "$arg" == "-s" ]] && continue
+ 
+   CMD_ARGS="$CMD_ARGS $arg"
+ done
+ 
+ docker run --rm -v /home:/home/ --workdir / zedtux/docker-rubocop:0.34.2 $CMD_ARGS
  ```
  6. Make it executable: `chmod +x /usr/local/bin/rubocop`
 
